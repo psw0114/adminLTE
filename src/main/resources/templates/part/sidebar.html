@@ -1,0 +1,36 @@
+<aside class="main-sidebar sidebar-dark-primary  elevation-4">
+  <!-- Left side column. contains the sidebar -->
+  <!-- Brand Logo -->
+  <a th:href="@{/}" class="brand-link">
+    <!--/* <img src="/static/images/logo/HIS_logo_WB_WC.svg" alt="Logo" class="brand-image elevation-3" style="opacity: .8; min-width:133px;"> */-->
+    <span class="brand-text font-weight-light"> PrintBank </span>
+  </a>
+  <!-- sidebar: style can be found in sidebar.less -->
+  <div class="sidebar">
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-header"> PrintBank 관리 시스템 </li>
+          <li th:class="'nav-item has-tree-view' + (${#strings.startsWith(@thUtil.getRequestURI(), '/basic')} ? ' menu-open' : '')">
+            <a th:href="@{#}" th:class="'nav-link' + (${#strings.startsWith(@thUtil.getRequestURI(), '/basic')} ? ' active' : '')">
+              <i class="nav-icon fas fa-database"> </i> <p> 기초 데이터 </p>
+              <p> <i class="right fas fa-angle-left"> </i> </p>
+            </a>
+            <ul class="nav nav-treeview" style="border-bottom: 1px solid #4b545c;">
+              <li class="nav-item">
+                <a th:href="@{/basic/sub2000}" th:class="'h6 small nav-link' + (${#strings.startsWith(@thUtil.getRequestURI(), '/basic/sub2')} ? ' active' : '')">
+                  &nbsp;&nbsp; <i class="nav-icon fas fa-folder"> </i> 용지 분류
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/basic/sub1000}" th:class="'h6 small nav-link' + (${#strings.startsWith(@thUtil.getRequestURI(), '/basic/sub1')} ? ' active' : '')">
+                  &nbsp;&nbsp; <i class="nav-icon fas fa-file"> </i> 용지
+                </a>
+              </li>
+            </ul>
+          </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- /.sidebar -->
+</aside>

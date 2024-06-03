@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>
+      <th:block layout:fragment="title"> PrintBank </th:block>
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!--/* <link rel="shortcut icon" href="/img/logo/favicon.ico"> */-->
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700}">
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css}">
+    <!-- plugin -->
+    <!-- src\main\resources\static\module\admin-lte\plugins\daterangepicker\daterangepicker.css -->  
+    <link rel="stylesheet" th:href="@{/module/admin-lte/plugins/fontawesome-free/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/module/admin-lte/plugins/daterangepicker/daterangepicker.css}">
+    <link rel="stylesheet" th:href="@{/module/admin-lte/dist/css/adminlte.min.css}">
+    <link rel="stylesheet" th:href="@{/module/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+<!--    <link rel="stylesheet" th:href="@{/module/admin-lte/plugins/jquery-ui/jquery-ui.min.css}">-->
+    <link rel="stylesheet" th:href="@{/module/admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css}">
+    <link rel="stylesheet" th:href="@{/module/admin-lte/plugins/sweetalert2/sweetalert2.min.css}">
+    <!-- cdn -->
+    <!-- static -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <th:block layout:fragment="extra_head"> <!-- extra_head --> </th:block>
+  </head>    
+  <!-- <body th:class="(${#arrays.contains({'/', '/index'}, @thUtil.getRequestURI())} ? ' login-page' : ' sidebar-mini layout-fixed') + ((${@thUtil.getCookie('sidebar')} == 'Y') ? ' sidebar-collapse' : '')"> -->
+  <body1 th:class="(${#arrays.contains({'/', '/index','/sub1000'}, @thUtil.getRequestURI())} ? ' login-page' : ' sidebar-mini layout-fixed') + ((${@thUtil.getCookie('sidebar')} == 'Y') ? ' sidebar-collapse' : '')">
+    <th:block layout:fragment="body">
+      <div th:class="'wrapper'">
+        <th:block layout:fragment="nav_header" layout:insert="~{@{part/header}}"> </th:block>
+        <th:block layout:fragment="nav_sidebar" layout:insert="~{@{part/sidebar}}"> </th:block>
+        <th:block layout:fragment="content_wrapper">
+          <div class="content-wrapper">
+            <section class="content-header">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="row">
+                      <h1>
+                        <th:block layout:fragment="content_header_title"> </th:block>
+                      </h1>
+                      <button class="btn btn-secondary ml-2" onclick="location.reload();">
+                        <i class="fas fa-redo-alt"> </i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-6 d-flex justify-content-end align-items-center">
+                    <ol class="breadcrumb">
+                      <th:block layout:fragment="content_header_nav"> </th:block>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="content">
+              <th:block layout:fragment="content"> <!-- content --> </th:block>
+            </section>
+          </div>
+        </th:block>
+        <th:block layout:fragment="nav_footer" layout:insert="~{@{part/footer}}"> </th:block>
+      </div>
+    </th:block>
+    <!-- admin-lte -->
+    <script th:src="@{/module/admin-lte/plugins/jquery/jquery.min.js}"> </script>
+    <script th:src="@{/module/admin-lte/plugins/jquery-ui/jquery-ui.min.js}"> </script>
+    <script th:src="@{/module/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js}"> </script>
+    <script th:src="@{/module/admin-lte/plugins/bs-custom-file-input/bs-custom-file-input.min.js}"> </script>
+    <script th:src="@{/module/admin-lte/plugins/moment/moment.min.js}"> </script>
+    <script th:src="@{/module/admin-lte/plugins/daterangepicker/daterangepicker.js}"> </script>
+    <script th:src="@{/module/admin-lte/plugins/sweetalert2/sweetalert2.all.min.js}"> </script>
+    <script th:src="@{/module/admin-lte/dist/js/adminlte.min.js}"> </script>
+    <!-- cdn -->
+    <script th:src="@{//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js}"> </script>
+    <script>
+<!--      $.widget.bridge('uibutton', $.ui.button)-->
+    </script>
+    <!-- static -->
+    <script id="config" type="application/json" th:if="${#bools.isTrue(jsConfig)}" th:inline="javascript">
+      [[${jsConfig}]]
+    </script>
+    <script type="module" th:src="@{/js/common.m.js}"> </script>
+    <th:block layout:fragment="extra_js"> <!-- extra_js --> </th:block>
+  </body1>
+</html>

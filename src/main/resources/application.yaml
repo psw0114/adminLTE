@@ -1,0 +1,37 @@
+spring:
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    mode: HTML
+    cache: false
+    check-template-location: true
+  web:
+    resources:
+      static-locations: classpath:static/
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/PrintBank_V_0_2?useUnicode=true&characterEncoding=utf8
+    username: printbank
+    password: pb12
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+server:
+  port: 8088
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+logging:
+  charset:
+    console: EUC-KR
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level [%logger{5}.%method\\(%logger{0}.java:%line\\)] [%t] - %msg%n"
+  level:
+    '[com.example.demo]': debug
+  file:
+    path: E:\workspace\psw\log\demo
